@@ -4,6 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 const contactsRouter = require("./routes/api/contacts");
+const { errorHandler } = require('./helpers');
 
 dotenv.config();
 
@@ -21,9 +22,6 @@ app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
 });
 
-app.use((err, req, res, next) => {
-  const { status = 500, message = "Server error" } = err;
-  res.status(status).json({ message });
-});
+app.use(errorHandler);
 
 module.exports = app;
