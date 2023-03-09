@@ -1,5 +1,6 @@
-const { contactsRouter } = require('./api');
+const { contactsRouter, authRouter } = require('./api');
 
 module.exports = {
-    contactsRouter
+    contactsRouter,
+    authRouter
 };
