@@ -23,11 +23,3 @@ const login = async (req, res, next) => {
 };
 
 module.exports = login;
-
-// const decodeToken = jwt.decode(token);
-
-// try {
-//   const { id } = jwt.verify(token, SECRET_KEY);
-// } catch (error) {
-//   console.log(error.message);
-// }

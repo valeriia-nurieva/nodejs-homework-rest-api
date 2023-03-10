@@ -3,7 +3,7 @@ const Joi = require("joi");
 const { handleMongooseError } = require("../helpers");
 
 const contactSchema = new Schema(
-      {
+  {
     name: {
       type: String,
       required: [true, 'Set name for contact'],
@@ -18,7 +18,12 @@ const contactSchema = new Schema(
       type: Boolean,
       default: false,
     },
-  }, {versionKey: false, timestamps: true}
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+      required: true,
+    }
+  }, { versionKey: false, timestamps: true }
 );
 
 contactSchema.post("save", handleMongooseError);
